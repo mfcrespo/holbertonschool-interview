@@ -17,7 +17,7 @@
 
 | **Filename** | **Description** |
 |---|---|
-| [0. Floor plans ](./0-floor.unity/) | Create a new 3D Unity project called 0x01-unity_concepts. Save your new scene as 0-floor. Create a new Cube GameObject named Floor with the given Transform properties  |
+| [0. Lockboxes ](./0-lockboxes.py/) | Write a method that determines if all the boxes can be opened  |
 
 #### Follow me 💬
 
