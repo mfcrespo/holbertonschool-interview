@@ -1,20 +1,14 @@
 #include <stdio.h>
 #include "sandpiles.h"
 
-#define DIRECTION_UP 0
-#define DIRECTION_DOWN 1
-#define DIRECTION_LEFT 2
-#define DIRECTION_RIGHT 3
-
 /**
- * print_grid - prints a 3x3 array of integers.
- * @grid: array to print
- *
+ * print_grid - prints a 3x3 grid of integers
+ * @grid: grid to print
  * Return: nothing
  */
 static void print_grid(int grid[3][3])
 {
-	int i, j;
+	int i, j;  /**i: row index, j:column index*/
 
 	for (i = 0; i < 3; i++)
 	{
@@ -29,15 +23,15 @@ static void print_grid(int grid[3][3])
 }
 
 /**
- * sandpiles_sum - sums two 3x3 sandpiles and displays its result.
+ * sandpiles_sum - function that computes the sum of two sandpiles
  * @grid1: first grid
  * @grid2: second grid
- *
  * Return: nothing
  */
+
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int i, j;
+	int i, j; /**i: row index, j:column index*/
 
 	for (i = 0; i < 3; i++)
 		for (j = 0; j < 3; j++)
@@ -47,22 +41,21 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	{
 		printf("=\n");
 		print_grid(grid1);
-		topple(grid1);
+		toppling_round(grid1);
 	}
 }
 
 /**
  * is_unstable - checks if a 3x3 sandpile is unstable (contains a cell
  * holding more than three grains)
- *
  * @grid: grid to check
- *
- * Return: if the grid is unstable, a non-zero value is returned, otherwise,
- * the function will return zero.
+ * Return: if the grid is unstable, a value different to zero is returned,
+ * otherwise, the function will return zero
  */
+
 int is_unstable(int grid[3][3])
 {
-	int i, j;
+	int i, j; /**i: row index, j:column index*/
 
 	for (i = 0; i < 3; i++)
 		for (j = 0; j < 3; j++)
@@ -74,14 +67,14 @@ int is_unstable(int grid[3][3])
 
 
 /**
- * topple - topples a 3x3 unstable sandpile
- * @grid: grid to topple
- *
- * Return: nothing.
+ * toppling_round - topples a 3x3 unstable sandpile
+ * @grid: grid to toppling
+ * Return: nothing
  */
-void topple(int grid[3][3])
+
+void toppling_round(int grid[3][3])
 {
-	int i, j;
+	int i, j; /**i: row index, j:column index*/
 	int residue[3][3] = {
 		{0, 0, 0},
 		{0, 0, 0},
