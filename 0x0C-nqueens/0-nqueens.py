@@ -20,33 +20,33 @@ import sys
 
 
 def queens(n):
-    """a program that solves the N queens problem"""
-    path = []
-    games = set()
+    """program that solves the N queens problem"""
+    trail = []
+    sets = set()
 
     for column in range(n):
-        path.append([0, column])
-        games.add(column)
+        trail.append([0, column])
+        sets.add(column)
 
-    lane = []
+    road = []
 
-    while path:
-        [row, column] = path.pop(0)
-        while lane and (row < lane[0][0]):
-            lane.pop(0)
+    while trail:
+        [row, column] = trail.pop(0)
+        while road and (row < road[0][0]):
+            road.pop(0)
 
-        if lane and (row == lane[0][0]):
-            lane[0] = [row, column]
+        if road and (row == road[0][0]):
+            road[0] = [row, column]
 
         else:
-            lane.insert(0, [row, column])
+            road.insert(0, [row, column])
 
-        nextrows = row + 1
+        nextsrows = row + 1
         death = set()
 
-        for (i, j) in lane:
+        for (i, j) in road:
             death.add(j)
-            distance = nextrows - i
+            distance = nextsrows - i
 
             if j - distance >= 0:
                 death.add(j - distance)
@@ -54,20 +54,20 @@ def queens(n):
             if j + distance < n:
                 death.add(j + distance)
 
-        safe = games.difference(death)
+        safe = sets.difference(death)
 
         if not safe:
-            if nextrows == n:
-                temp = lane.copy()
+            if nextsrows == n:
+                temp = road.copy()
                 temp.reverse()
                 print(temp, flush=True)
-            lane.pop(0)
+            road.pop(0)
 
         else:
             safe = list(safe)
             safe.reverse()
             for position in safe:
-                path.insert(0, [nextrows, position])
+                trail.insert(0, [nextsrows, position])
 
 
 if __name__ == '__main__':
