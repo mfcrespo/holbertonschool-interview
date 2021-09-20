@@ -57,7 +57,7 @@ def queens(n):
         safe = games.difference(death)
 
         if not safe:
-            if nextsrows == n:
+            if nextrows == n:
                 temp = lane.copy()
                 temp.reverse()
                 print(temp, flush=True)
