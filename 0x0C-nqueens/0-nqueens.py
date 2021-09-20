@@ -46,7 +46,7 @@ def queens(n):
 
         for (i, j) in lane:
             death.add(j)
-            distance = nextsrows - i
+            distance = nextrows - i
 
             if j - distance >= 0:
                 death.add(j - distance)
