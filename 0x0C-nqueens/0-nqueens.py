@@ -1,45 +1,50 @@
 #!/usr/bin/python3
 """
-program that solves the N queens problem
-Usage: nqueens N
-    If the user called the program with the wrong number of arguments,
-    print Usage: nqueens N, followed by a new line, and exit with the status 1.
-where N must be an integer greater or equal to 4
-    If N is not an integer, print N must be a number,
-    followed by a new line, and exit with the status 1
-    If N is smaller than 4, print N must be at least 4,
-    followed by a new line, and exit with the status.
+Write a program that solves the N queens problem.
+* Usage: nqueens N
+- If the user called the program with the wrong number of arguments,
+  print Usage: nqueens N, followed by a new line, and exit with the status 1
+* Where N must be an integer greater or equal to 4
+- If N is not an integer, print N must be a number, followed by a new line,
+  and exit with the status 1
+- If N is smaller than 4, print N must be at least 4, followed by a new line,
+  and exit with the status 1
+* The program should print every possible solution to the problem
+- One solution per line
+- Format: see example
+- You don’t have to print the solutions in a specific order
+* You are only allowed to import the sys module
 """
 
 import sys
 
 
 def queens(n):
-    """program that solves the N queens problem"""
-    trail = []
-    sets = set()
+    """a program that solves the N queens problem"""
+    path = []
+    games = set()
 
     for column in range(n):
-        trail.append([0, column])
-        sets.add(column)
+        path.append([0, column])
+        games.add(column)
 
-    road = []
+    lane = []
 
-    while trail:
-        [row, column] = trail.pop(0)
-        while road and (row < road[0][0]):
-            road.pop(0)
+    while path:
+        [row, column] = path.pop(0)
+        while lane and (row < lane[0][0]):
+            lane.pop(0)
 
-        if road and (row == road[0][0]):
-            road[0] = [row, column]
+        if lane and (row == lane[0][0]):
+            lane[0] = [row, column]
 
         else:
-            road.insert(0, [row, column])
+            lane.insert(0, [row, column])
 
-        nextsrows = row + 1
+        nextrows = row + 1
         death = set()
 
-        for (i, j) in road:
+        for (i, j) in lane:
             death.add(j)
             distance = nextsrows - i
 
@@ -49,20 +54,20 @@ def queens(n):
             if j + distance < n:
                 death.add(j + distance)
 
-        safe = sets.difference(death)
+        safe = games.difference(death)
 
         if not safe:
             if nextsrows == n:
-                temp = road.copy()
+                temp = lane.copy()
                 temp.reverse()
                 print(temp, flush=True)
-            road.pop(0)
+            lane.pop(0)
 
         else:
             safe = list(safe)
             safe.reverse()
             for position in safe:
-                trail.insert(0, [nextsrows, position])
+                path.insert(0, [nextrows, position])
 
 
 if __name__ == '__main__':
