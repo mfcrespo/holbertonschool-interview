@@ -1,4 +1,4 @@
-![](https://i.ytimg.com/vi/nu4gDuFabIM/maxresdefault.jpg)
+![](https://i.blogs.es/21f7ba/c-lenguaje/1366_2000.jpg)
 
 # 0x1E. Wild Compare
 
