@@ -9,20 +9,20 @@ def pascal_triangle(n):
     returns a list of lists of integers representing
     the Pascal’s triangle of n
     """
-    pascal_tri = []
+    tri_pascal = []
     if n <= 0:
-        return pascal_tri
+        return tri_pascal
     elif n == 1:
-        pascal_tri.append([1])
-        return pascal_tri
+        tri_pascal.append([1])
+        return tri_pascal
     else:
-        pascal_tri = [[1], [1, 1]]
+        tri_pascal = [[1], [1, 1]]
         for fila in range(2, n):
             i_list = [1]
             for i in range(1, fila):
-                i_list.append(pascal_tri[fila - 1][i - 1] +
-                              pascal_tri[fila - 1][i])
+                i_list.append(tri_pascal[fila - 1][i - 1] +
+                              tri_pascal[fila - 1][i])
             i_list.append(1)
-            pascal_tri.append(i_list)
+            tri_pascal.append(i_list)
 
-    return pascal_tri
+    return tri_pascal
