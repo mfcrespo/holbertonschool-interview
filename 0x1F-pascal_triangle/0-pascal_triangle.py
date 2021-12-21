@@ -6,23 +6,20 @@ representing the Pascals triangle of n
 
 def pascal_triangle(n):
     """
-    returns a list of lists of integers representing
-    the Pascal’s triangle of n
+    Creates a pascal triangle
+    @n: level of the pascal triangle
+    Return: list of list
     """
-    tri_pascal = []
+    result = []
     if n <= 0:
-        return tri_pascal
-    elif n == 1:
-        tri_pascal.append([1])
-        return tri_pascal
-    else:
-        tri_pascal = [[1], [1, 1]]
-        for fila in range(2, n):
-            i_list = [1]
-            for i in range(1, fila):
-                i_list.append(tri_pascal[fila - 1][i - 1] +
-                              tri_pascal[fila - 1][i])
-            i_list.append(1)
-            tri_pascal.append(i_list)
+        return result
 
-    return tri_pascal
+    last = [1]
+    for i in range(1, n + 1):
+        actual = [1] * i
+        actual = [last[index - 1] + last[index] if index > 0 and
+                  index < len(actual) - 1 else 1 for index,
+                  value in enumerate(actual)]
+        last = actual
+        result.append(actual)
+    return result
