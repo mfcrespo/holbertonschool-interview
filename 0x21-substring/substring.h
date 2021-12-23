@@ -1,7 +1,7 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#ifndef _SUBSTRING_H_
+#define _SUBSTRING_H_
 
 
 int *find_substring(char const *s, char const **words, int nb_words, int *n);
 
+#endif /* END SUBSTRING.H */
