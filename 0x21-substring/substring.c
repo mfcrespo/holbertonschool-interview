@@ -74,7 +74,7 @@ int *check(char const *s, char const **words, int nb_words)
 
 int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
-    int *index, *arr, len, diff, s_len, idx, tmp;
+    int *indx, *arr, len, diff, s_len, idx, tmp;
     int i, j;
 
     *n = 0;
@@ -101,17 +101,17 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
         if (idx == 1)
         {
             diff = s_len - tmp;
-            if (*n == 0 || diff != index[*n - 1])
+            if (*n == 0 || diff != indx[*n - 1])
             {
                 if (*n == 0)
                 {
-                    index = malloc((sizeof(int)));
-                    if (!index)
+                    indx = malloc((sizeof(int)));
+                    if (!indx)
                         return (NULL);
                 }
                 else
-                    index = realloc(index, sizeof(int) * (*n + 1));
-                index[*n] = diff;
+                    indx = realloc(indx, sizeof(int) * (*n + 1));
+                indx[*n] = diff;
                 *n += 1;
             }
         }
@@ -119,5 +119,5 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
     }
     if (*n == 0)
         return (NULL);
-    return (index);
+    return (indx);
 }
